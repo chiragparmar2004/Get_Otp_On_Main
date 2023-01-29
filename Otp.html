@@ -1,0 +1,62 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <form>
+  <input type="button" value="Send Email" onclick="sendEmail()">
+  </form>
+
+<!--   <script type="text/javascript">
+  
+  function sendEmail(){
+    Email.send(
+    
+  }
+ -->
+
+<script type="text/javascript"> //function to send mail when button was clic
+function generateOTP() {
+    var OTP = Math.floor(Math.random() * 900000) + 100000;
+    OTP = OTP.toString();
+    // send OTP in an email using an email library or API
+    return OTP;
+}
+
+function sendEmail() {
+
+Email.send({
+
+Host: "smtp.elasticemail.com", Username: "yourusername@gmail.com", // use your gmail which is created by elastic mail api
+
+port : "XYZ", // use your port address given by elastic mail api
+
+Password: "SGONOISS2302023SFSFSF1", // use your password given by elastic mail api
+
+To: 'receivermail@gmail.com', // Enter receiver mail address
+
+From: "cp08072004@gmail.com", // Enter Sender mail address
+
+Subject: "This is the subject",
+
+Body:  This is your otp  generateOTP()
+
+}).then(
+
+message => alert(message) );
+
+}
+
+</script>
+
+  
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  
+</body>
+</html>
